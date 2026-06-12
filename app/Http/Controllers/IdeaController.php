@@ -50,7 +50,9 @@ class IdeaController extends Controller
      */
     public function show(idea $idea)
     {
-        //
+        return view("idea/show", [
+            "idea" => $idea
+        ]);
     }
 
     /**
@@ -74,6 +76,7 @@ class IdeaController extends Controller
      */
     public function destroy(idea $idea)
     {
-        //
+        $idea->delete();
+        return redirect("/ideas");
     }
 }
