@@ -3,6 +3,10 @@
         <header class="py-8 md:py-12">
             <h1 class="text-3xl font-bold">Ideas</h1>
             <p class="text-muted-foreground text-sm mt-2">Capture your thoughts. Make a plan.</p>
+            <x-card type="button" is="button" class="block mt-10 cursor-pointer h-32 w-full text-left" x-data
+                @click="$dispatch('open-modal', 'create-idea')">
+                <p>Whats the idea?</p>
+            </x-card>
         </header>
 
         <div>
@@ -40,5 +44,8 @@
                 @endforelse
             </div>
         </div>
+        <x-modal name="create-idea" title="New Idea">
+            <p>Slot content</p>
+        </x-modal>
     </div>
 </x-layout>
