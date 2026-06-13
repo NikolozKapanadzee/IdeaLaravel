@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\LoginUserController;
 use App\Http\Controllers\RegisterUserController;
+use App\Http\Controllers\StepController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,6 +14,7 @@ Route::get('/ideas', [IdeaController::class, 'index'])->name("idea.index")->midd
 Route::post('/ideas', [IdeaController::class, 'store'])->name("idea.store")->middleware("auth");
 Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name("idea.show")->middleware("auth");
 Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy'])->name("idea.destroy")->middleware("auth");
+Route::patch('/steps/{step}', [StepController::class, 'update'])->name('step.update')->middleware('auth');
 Route::get("/register", [RegisterUserController::class, "create"])->middleware('guest');
 Route::post("/register", [RegisterUserController::class, "store"])->middleware('guest');
 Route::get("/login", [LoginUserController::class, "create"])->name("login")->middleware('guest');
